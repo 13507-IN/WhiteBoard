@@ -10,6 +10,7 @@ require("./config/passport");
 
 const authRoutes = require("./routes/auth");
 const apiRoutes = require("./routes/api");
+const whiteboardRoutes = require("./routes/whiteboard");
 
 const app = express();
 
@@ -71,6 +72,7 @@ app.get("/health", (_req, res) => {
 
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
+app.use("/api/whiteboards", whiteboardRoutes);
 
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
