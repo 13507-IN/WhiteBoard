@@ -142,7 +142,13 @@ export default function HomePage() {
       <p className="muted">
         Signed in as {user.name} ({user.email})
       </p>
-      <div className="row" style={{ marginBottom: 12 }}>
+      <div className="row" style={{ marginBottom: 12, gap: 8 }}>
+        <a href="/whiteboard" className="button" style={{ textDecoration: "none" }}>
+          ✏️ Open Whiteboard
+        </a>
+        <a href="/whiteboards" className="button" style={{ textDecoration: "none" }}>
+          📋 My Whiteboards
+        </a>
         <button className="secondary" onClick={logout}>
           Logout
         </button>
