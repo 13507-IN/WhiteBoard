@@ -74,3 +74,49 @@ Open:
 - `POST /api/todos` create todo
 - `PATCH /api/todos/:id` update text/completed
 - `DELETE /api/todos/:id` delete todo
+
+## Whiteboard Feature
+
+The app now includes a collaborative whiteboard where authenticated users can:
+
+### Whiteboard Capabilities
+- **Draw & Sketch** - Use the canvas with customizable brush colors and sizes
+- **Add Text** - Toggle text mode to add text annotations to your whiteboard
+- **Manage Whiteboards** - Create, save, and organize multiple whiteboards
+- **Undo & Clear** - Undo the last action or clear the entire whiteboard
+
+### Accessing Whiteboards
+
+1. **Sign in** with your Google account
+2. Click **"✏️ Open Whiteboard"** to create and edit a new whiteboard
+3. Click **"📋 My Whiteboards"** to see all your saved whiteboards
+
+### Whiteboard Tools
+
+- **Color Picker** - Select any color for your brush
+- **Brush Size** - Adjust brush size from 1-20 pixels
+- **Text Mode** - Toggle between drawing and text input modes
+- **Undo** - Undo the last stroke
+- **Clear** - Clear the entire whiteboard
+- **Save** - Save your whiteboard with a custom title
+
+### Whiteboard API Endpoints
+
+- `GET /api/whiteboards` - List all whiteboards (auth required)
+- `POST /api/whiteboards` - Create a new whiteboard
+- `GET /api/whiteboards/:id` - Get a specific whiteboard
+- `PATCH /api/whiteboards/:id` - Update whiteboard (title, drawing data)
+- `DELETE /api/whiteboards/:id` - Delete a whiteboard
+
+### Data Model
+
+Whiteboards are stored in MongoDB with the following structure:
+```javascript
+{
+  user: ObjectId,           // Reference to User
+  title: String,            // Whiteboard title
+  drawingData: Array,       // Array of drawing elements
+  createdAt: Date,          // Creation timestamp
+  updatedAt: Date           // Last modification timestamp
+}
+```
